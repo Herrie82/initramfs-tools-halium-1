@@ -467,7 +467,7 @@ mountroot() {
 	# Mount the data partition to a temporary mount point
 	# FIXME: data=journal used on ext4 as a workaround for bug 1387214
 	[ "x$(blkid $path -o value -s TYPE)" = "xext4" ] && OPTIONS="data=journal,"
-	mount -o discard,$OPTIONS $path /tmpmnt
+	mount  $path /tmpmnt
 
 	# Set $_syspart if it is specified as systempart= on the command line
 	if grep -q systempart= /proc/cmdline; then
